@@ -1,0 +1,15 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "задача-Properties",
+      "appliesTo": "company_name/WpfApp1/Properties/",
+      "type": "launch"
+    },
+    {
+      "taskLabel": "задача-WpfApp1",
+      "appliesTo": "company_name/WpfApp1/",
+      "type": "launch"
+    }
+  ]
+}

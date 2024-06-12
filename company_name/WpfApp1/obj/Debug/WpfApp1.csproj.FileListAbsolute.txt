@@ -14,3 +14,7 @@ Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateR
 Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
 Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.exe
 Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.pdb
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.exe.manifest
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.application
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.exe.manifest
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.application

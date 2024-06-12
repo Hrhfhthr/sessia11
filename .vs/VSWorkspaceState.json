@@ -1,7 +1,11 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\company_name",
+    "\\company_name\\WpfApp1",
+    "\\company_name\\WpfApp1\\obj",
+    "\\company_name\\WpfApp1\\Properties"
   ],
-  "SelectedNode": "\\Q:\\source\\repos\\sessia11",
+  "SelectedNode": "\\company_name\\WpfApp1\\Properties\\Settings.settings",
   "PreviewInSolutionExplorer": false
 }
