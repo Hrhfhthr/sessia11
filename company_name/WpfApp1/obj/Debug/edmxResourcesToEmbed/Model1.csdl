@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="demkaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="activities">
+    <Key>
+      <PropertyRef Name="activities_id" />
+    </Key>
+    <Property Name="activities_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="activities_event" Type="Int32" Nullable="false" />
+    <Property Name="activities_name" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="activities_day" Type="Int32" Nullable="false" />
+    <Property Name="activities_start_time" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="activities_moderator" Type="Int32" />
+    <Property Name="activities_jury" Type="Int32" />
+    <NavigationProperty Name="jury_list" Relationship="Self.FK_activities_jury_list" FromRole="activities" ToRole="jury_list" />
+    <NavigationProperty Name="moderators" Relationship="Self.FK_activities_moderators" FromRole="activities" ToRole="moderators" />
+  </EntityType>
+  <EntityType Name="cities">
+    <Key>
+      <PropertyRef Name="cities_id" />
+    </Key>
+    <Property Name="cities_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cities_img" Type="Binary" MaxLength="50" FixedLength="true" />
+    <Property Name="cities_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="events" Relationship="Self.FK_events_cities" FromRole="cities" ToRole="events" />
+  </EntityType>
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="countries_id" />
+    </Key>
+    <Property Name="countries_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="countries_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="countries_eng_name" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="countries_code" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="countries_code_two" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="jury" Relationship="Self.FK_jury_countries" FromRole="countries" ToRole="jury" />
+    <NavigationProperty Name="member" Relationship="Self.FK_member_countries" FromRole="countries" ToRole="member" />
+    <NavigationProperty Name="moderators" Relationship="Self.FK_moderators_countries" FromRole="countries" ToRole="moderators" />
+    <NavigationProperty Name="organizers" Relationship="Self.FK_organizers_countries" FromRole="countries" ToRole="organizers" />
+  </EntityType>
+  <EntityType Name="directions">
+    <Key>
+      <PropertyRef Name="directions_id" />
+    </Key>
+    <Property Name="directions_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="directions_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="jury" Relationship="Self.FK_jury_directions" FromRole="directions" ToRole="jury" />
+    <NavigationProperty Name="moderators" Relationship="Self.FK_moderators_directions" FromRole="directions" ToRole="moderators" />
+    <NavigationProperty Name="events" Relationship="demkaModel.FK_events_directions" FromRole="directions" ToRole="events" />
+  </EntityType>
+  <EntityType Name="events">
+    <Key>
+      <PropertyRef Name="events_id" />
+    </Key>
+    <Property Name="events_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="events_name" Type="String" MaxLength="350" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="events_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="events_days" Type="Int32" Nullable="false" />
+    <Property Name="events_city" Type="Int32" Nullable="false" />
+    <Property Name="events_winner" Type="Int32" />
+    <NavigationProperty Name="cities" Relationship="Self.FK_events_cities" FromRole="events" ToRole="cities" />
+    <NavigationProperty Name="member" Relationship="Self.FK_events_member" FromRole="events" ToRole="member" />
+    <NavigationProperty Name="moderators" Relationship="Self.FK_moderators_events" FromRole="events" ToRole="moderators" />
+    <Property Name="events_direction" Type="Int32" />
+    <NavigationProperty Name="directions" Relationship="demkaModel.FK_events_directions" FromRole="events" ToRole="directions" />
+    <Property Name="events_img" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="jury">
+    <Key>
+      <PropertyRef Name="jury_id" />
+    </Key>
+    <Property Name="jury_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jury_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jury_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jury_mail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jury_bd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="jury_country" Type="Int32" Nullable="false" />
+    <Property Name="jury_phone" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jury_direction" Type="Int32" Nullable="false" />
+    <Property Name="jury_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="jury_photo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="countries" Relationship="Self.FK_jury_countries" FromRole="jury" ToRole="countries" />
+    <NavigationProperty Name="directions" Relationship="Self.FK_jury_directions" FromRole="jury" ToRole="directions" />
+    <NavigationProperty Name="jury_list" Relationship="Self.FK_jury_list_jury" FromRole="jury" ToRole="jury_list" />
+    <NavigationProperty Name="jury_list1" Relationship="Self.FK_jury_list_jury1" FromRole="jury" ToRole="jury_list" />
+    <NavigationProperty Name="jury_list2" Relationship="Self.FK_jury_list_jury2" FromRole="jury" ToRole="jury_list" />
+    <NavigationProperty Name="jury_list3" Relationship="Self.FK_jury_list_jury3" FromRole="jury" ToRole="jury_list" />
+    <NavigationProperty Name="jury_list4" Relationship="Self.FK_jury_list_jury4" FromRole="jury" ToRole="jury_list" />
+  </EntityType>
+  <EntityType Name="jury_list">
+    <Key>
+      <PropertyRef Name="jury_list_id" />
+    </Key>
+    <Property Name="jury_list_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="jury1" Type="Int32" />
+    <Property Name="jury2" Type="Int32" />
+    <Property Name="jury3" Type="Int32" />
+    <Property Name="jury4" Type="Int32" />
+    <Property Name="jury5" Type="Int32" />
+    <NavigationProperty Name="activities" Relationship="Self.FK_activities_jury_list" FromRole="jury_list" ToRole="activities" />
+    <NavigationProperty Name="jury" Relationship="Self.FK_jury_list_jury" FromRole="jury_list" ToRole="jury" />
+    <NavigationProperty Name="jury6" Relationship="Self.FK_jury_list_jury1" FromRole="jury_list" ToRole="jury" />
+    <NavigationProperty Name="jury7" Relationship="Self.FK_jury_list_jury2" FromRole="jury_list" ToRole="jury" />
+    <NavigationProperty Name="jury8" Relationship="Self.FK_jury_list_jury3" FromRole="jury_list" ToRole="jury" />
+    <NavigationProperty Name="jury9" Relationship="Self.FK_jury_list_jury4" FromRole="jury_list" ToRole="jury" />
+  </EntityType>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="member_id" />
+    </Key>
+    <Property Name="member_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="member_email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="member_bd" Type="DateTime" Precision="0" />
+    <Property Name="member_country" Type="Int32" Nullable="false" />
+    <Property Name="member_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="member_password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="member_photo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="member_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="countries" Relationship="Self.FK_member_countries" FromRole="member" ToRole="countries" />
+    <NavigationProperty Name="events" Relationship="Self.FK_events_member" FromRole="member" ToRole="events" />
+  </EntityType>
+  <EntityType Name="moderators">
+    <Key>
+      <PropertyRef Name="moderators_id" />
+    </Key>
+    <Property Name="moderators_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="moderators_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moderators_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moderators_mail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moderators_bd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="moderators_country" Type="Int32" Nullable="false" />
+    <Property Name="moderators_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moderators_direction" Type="Int32" Nullable="false" />
+    <Property Name="moderators_event" Type="Int32" Nullable="false" />
+    <Property Name="moderators_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moderators_photo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="activities" Relationship="Self.FK_activities_moderators" FromRole="moderators" ToRole="activities" />
+    <NavigationProperty Name="countries" Relationship="Self.FK_moderators_countries" FromRole="moderators" ToRole="countries" />
+    <NavigationProperty Name="directions" Relationship="Self.FK_moderators_directions" FromRole="moderators" ToRole="directions" />
+    <NavigationProperty Name="events" Relationship="Self.FK_moderators_events" FromRole="moderators" ToRole="events" />
+  </EntityType>
+  <EntityType Name="organizers">
+    <Key>
+      <PropertyRef Name="organizers_id" />
+    </Key>
+    <Property Name="organizers_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="organizers_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="organizers_mail" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="organizers_bd" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="organizers_country" Type="Int32" Nullable="false" />
+    <Property Name="organizers_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="organizers_password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="organizers_photo" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="organizers_gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="countries" Relationship="Self.FK_organizers_countries" FromRole="organizers" ToRole="countries" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_activities_jury_list">
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="0..1" />
+    <End Role="activities" Type="Self.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury_list">
+        <PropertyRef Name="jury_list_id" />
+      </Principal>
+      <Dependent Role="activities">
+        <PropertyRef Name="activities_jury" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_activities_moderators">
+    <End Role="moderators" Type="Self.moderators" Multiplicity="0..1" />
+    <End Role="activities" Type="Self.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="moderators">
+        <PropertyRef Name="moderators_id" />
+      </Principal>
+      <Dependent Role="activities">
+        <PropertyRef Name="activities_moderator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_events_cities">
+    <End Role="cities" Type="Self.cities" Multiplicity="1" />
+    <End Role="events" Type="Self.events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities">
+        <PropertyRef Name="cities_id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="events_city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="jury" Type="Self.jury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="jury">
+        <PropertyRef Name="jury_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="member_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moderators_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="moderators" Type="Self.moderators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="moderators">
+        <PropertyRef Name="moderators_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_organizers_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="organizers" Type="Self.organizers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="organizers">
+        <PropertyRef Name="organizers_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_directions">
+    <End Role="directions" Type="Self.directions" Multiplicity="1" />
+    <End Role="jury" Type="Self.jury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="directions">
+        <PropertyRef Name="directions_id" />
+      </Principal>
+      <Dependent Role="jury">
+        <PropertyRef Name="jury_direction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moderators_directions">
+    <End Role="directions" Type="Self.directions" Multiplicity="1" />
+    <End Role="moderators" Type="Self.moderators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="directions">
+        <PropertyRef Name="directions_id" />
+      </Principal>
+      <Dependent Role="moderators">
+        <PropertyRef Name="moderators_direction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_events_member">
+    <End Role="member" Type="Self.member" Multiplicity="0..1" />
+    <End Role="events" Type="Self.events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="events_winner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moderators_events">
+    <End Role="events" Type="Self.events" Multiplicity="1" />
+    <End Role="moderators" Type="Self.moderators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="events">
+        <PropertyRef Name="events_id" />
+      </Principal>
+      <Dependent Role="moderators">
+        <PropertyRef Name="moderators_event" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury1">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury2">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury3">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury4">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="infoEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="activities" EntityType="Self.activities" />
+    <EntitySet Name="cities" EntityType="Self.cities" />
+    <EntitySet Name="countries" EntityType="Self.countries" />
+    <EntitySet Name="directions" EntityType="Self.directions" />
+    <EntitySet Name="events" EntityType="Self.events" />
+    <EntitySet Name="jury" EntityType="Self.jury" />
+    <EntitySet Name="jury_list" EntityType="Self.jury_list" />
+    <EntitySet Name="member" EntityType="Self.member" />
+    <EntitySet Name="moderators" EntityType="Self.moderators" />
+    <EntitySet Name="organizers" EntityType="Self.organizers" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_activities_jury_list" Association="Self.FK_activities_jury_list">
+      <End Role="jury_list" EntitySet="jury_list" />
+      <End Role="activities" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_activities_moderators" Association="Self.FK_activities_moderators">
+      <End Role="moderators" EntitySet="moderators" />
+      <End Role="activities" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_events_cities" Association="Self.FK_events_cities">
+      <End Role="cities" EntitySet="cities" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_countries" Association="Self.FK_jury_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="jury" EntitySet="jury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_countries" Association="Self.FK_member_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moderators_countries" Association="Self.FK_moderators_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="moderators" EntitySet="moderators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_organizers_countries" Association="Self.FK_organizers_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="organizers" EntitySet="organizers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_directions" Association="Self.FK_jury_directions">
+      <End Role="directions" EntitySet="directions" />
+      <End Role="jury" EntitySet="jury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moderators_directions" Association="Self.FK_moderators_directions">
+      <End Role="directions" EntitySet="directions" />
+      <End Role="moderators" EntitySet="moderators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_events_member" Association="Self.FK_events_member">
+      <End Role="member" EntitySet="member" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moderators_events" Association="Self.FK_moderators_events">
+      <End Role="events" EntitySet="events" />
+      <End Role="moderators" EntitySet="moderators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury" Association="Self.FK_jury_list_jury">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury1" Association="Self.FK_jury_list_jury1">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury2" Association="Self.FK_jury_list_jury2">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury3" Association="Self.FK_jury_list_jury3">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury4" Association="Self.FK_jury_list_jury4">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_events_directions" Association="demkaModel.FK_events_directions">
+      <End Role="directions" EntitySet="directions" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_events_directions">
+    <End Type="demkaModel.directions" Role="directions" Multiplicity="0..1" />
+    <End Type="demkaModel.events" Role="events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="directions">
+        <PropertyRef Name="directions_id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="events_direction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

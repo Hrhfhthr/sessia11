@@ -1,13 +1,38 @@
-﻿<Window x:Class="WpfApp1.MainWindow"
+﻿<Window x:Name="testWindow" x:Class="WpfApp1.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Название_компании" Height="1080" Width="1920" MinHeight="450" MinWidth="700" Loaded="companyNameWindow_Loaded">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="200,151,0,0" VerticalAlignment="Top" Height="42" Width="135"/>
+        <Button x:Name="testButton" Content="Button" Margin="1397,573,0,0" VerticalAlignment="Top" Height="42" Click="testButton_Click" HorizontalAlignment="Left" Width="135"/>
+        <DataGrid x:Name="EventsDataGrid" Margin="30,50,600,50" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True" RenderTransformOrigin="0.5,0.5" >
+            <DataGrid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="-0.112"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="-0.998"/>
+                </TransformGroup>
+            </DataGrid.RenderTransform>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Направление" Binding="{Binding Direction}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Img}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Превью">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Height="50px" Width="50px" Source="{Binding Img}"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="DirectionComboBox" HorizontalAlignment="Left" Margin="1344,93,0,0" VerticalAlignment="Top" Width="288" SelectionChanged="DirectionComboBox_SelectionChanged" FontSize="20"/>
+        <Label x:Name="DirectionLabel" Content="Сортировка по направлениям:" HorizontalAlignment="Left" Margin="1344,51,0,0" VerticalAlignment="Top" Width="302" FontSize="20"/>
 
     </Grid>
 </Window>

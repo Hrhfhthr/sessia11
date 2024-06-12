@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище demkaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="activities">
+    <Key>
+      <PropertyRef Name="activities_id" />
+    </Key>
+    <Property Name="activities_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="activities_event" Type="int" Nullable="false" />
+    <Property Name="activities_name" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="activities_day" Type="int" Nullable="false" />
+    <Property Name="activities_start_time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="activities_moderator" Type="int" />
+    <Property Name="activities_jury" Type="int" />
+  </EntityType>
+  <EntityType Name="cities">
+    <Key>
+      <PropertyRef Name="cities_id" />
+    </Key>
+    <Property Name="cities_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cities_img" Type="binary" MaxLength="50" />
+    <Property Name="cities_name" Type="varchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="countries">
+    <Key>
+      <PropertyRef Name="countries_id" />
+    </Key>
+    <Property Name="countries_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="countries_name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="countries_eng_name" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="countries_code" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="countries_code_two" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="directions">
+    <Key>
+      <PropertyRef Name="directions_id" />
+    </Key>
+    <Property Name="directions_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="directions_name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="events">
+    <Key>
+      <PropertyRef Name="events_id" />
+    </Key>
+    <Property Name="events_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="events_name" Type="varchar" MaxLength="350" Nullable="false" />
+    <Property Name="events_date" Type="date" Nullable="false" />
+    <Property Name="events_days" Type="int" Nullable="false" />
+    <Property Name="events_city" Type="int" Nullable="false" />
+    <Property Name="events_winner" Type="int" />
+    <Property Name="events_direction" Type="int" />
+    <Property Name="events_img" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="jury">
+    <Key>
+      <PropertyRef Name="jury_id" />
+    </Key>
+    <Property Name="jury_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jury_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="jury_gender" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="jury_mail" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="jury_bd" Type="date" Nullable="false" />
+    <Property Name="jury_country" Type="int" Nullable="false" />
+    <Property Name="jury_phone" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="jury_direction" Type="int" Nullable="false" />
+    <Property Name="jury_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="jury_photo" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="jury_list">
+    <Key>
+      <PropertyRef Name="jury_list_id" />
+    </Key>
+    <Property Name="jury_list_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="jury1" Type="int" />
+    <Property Name="jury2" Type="int" />
+    <Property Name="jury3" Type="int" />
+    <Property Name="jury4" Type="int" />
+    <Property Name="jury5" Type="int" />
+  </EntityType>
+  <EntityType Name="member">
+    <Key>
+      <PropertyRef Name="member_id" />
+    </Key>
+    <Property Name="member_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="member_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="member_email" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="member_bd" Type="date" />
+    <Property Name="member_country" Type="int" Nullable="false" />
+    <Property Name="member_phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="member_password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="member_photo" Type="varchar" MaxLength="250" />
+    <Property Name="member_gender" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="moderators">
+    <Key>
+      <PropertyRef Name="moderators_id" />
+    </Key>
+    <Property Name="moderators_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="moderators_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="moderators_gender" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="moderators_mail" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="moderators_bd" Type="date" Nullable="false" />
+    <Property Name="moderators_country" Type="int" Nullable="false" />
+    <Property Name="moderators_phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moderators_direction" Type="int" Nullable="false" />
+    <Property Name="moderators_event" Type="int" Nullable="false" />
+    <Property Name="moderators_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="moderators_photo" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="organizers">
+    <Key>
+      <PropertyRef Name="organizers_id" />
+    </Key>
+    <Property Name="organizers_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="organizers_name" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="organizers_mail" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="organizers_bd" Type="date" Nullable="false" />
+    <Property Name="organizers_country" Type="int" Nullable="false" />
+    <Property Name="organizers_phone" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="organizers_password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="organizers_photo" Type="varchar" MaxLength="250" />
+    <Property Name="organizers_gender" Type="varchar" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_activities_jury_list">
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="0..1" />
+    <End Role="activities" Type="Self.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury_list">
+        <PropertyRef Name="jury_list_id" />
+      </Principal>
+      <Dependent Role="activities">
+        <PropertyRef Name="activities_jury" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_activities_moderators">
+    <End Role="moderators" Type="Self.moderators" Multiplicity="0..1" />
+    <End Role="activities" Type="Self.activities" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="moderators">
+        <PropertyRef Name="moderators_id" />
+      </Principal>
+      <Dependent Role="activities">
+        <PropertyRef Name="activities_moderator" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_events_cities">
+    <End Role="cities" Type="Self.cities" Multiplicity="1" />
+    <End Role="events" Type="Self.events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cities">
+        <PropertyRef Name="cities_id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="events_city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_events_directions">
+    <End Role="directions" Type="Self.directions" Multiplicity="0..1" />
+    <End Role="events" Type="Self.events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="directions">
+        <PropertyRef Name="directions_id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="events_direction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_events_member">
+    <End Role="member" Type="Self.member" Multiplicity="0..1" />
+    <End Role="events" Type="Self.events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="member">
+        <PropertyRef Name="member_id" />
+      </Principal>
+      <Dependent Role="events">
+        <PropertyRef Name="events_winner" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="jury" Type="Self.jury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="jury">
+        <PropertyRef Name="jury_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_directions">
+    <End Role="directions" Type="Self.directions" Multiplicity="1" />
+    <End Role="jury" Type="Self.jury" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="directions">
+        <PropertyRef Name="directions_id" />
+      </Principal>
+      <Dependent Role="jury">
+        <PropertyRef Name="jury_direction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury1">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury2">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury3" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury3">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury4" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_jury_list_jury4">
+    <End Role="jury" Type="Self.jury" Multiplicity="0..1" />
+    <End Role="jury_list" Type="Self.jury_list" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jury">
+        <PropertyRef Name="jury_id" />
+      </Principal>
+      <Dependent Role="jury_list">
+        <PropertyRef Name="jury5" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_member_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="member" Type="Self.member" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="member">
+        <PropertyRef Name="member_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moderators_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="moderators" Type="Self.moderators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="moderators">
+        <PropertyRef Name="moderators_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moderators_directions">
+    <End Role="directions" Type="Self.directions" Multiplicity="1" />
+    <End Role="moderators" Type="Self.moderators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="directions">
+        <PropertyRef Name="directions_id" />
+      </Principal>
+      <Dependent Role="moderators">
+        <PropertyRef Name="moderators_direction" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_moderators_events">
+    <End Role="events" Type="Self.events" Multiplicity="1" />
+    <End Role="moderators" Type="Self.moderators" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="events">
+        <PropertyRef Name="events_id" />
+      </Principal>
+      <Dependent Role="moderators">
+        <PropertyRef Name="moderators_event" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_organizers_countries">
+    <End Role="countries" Type="Self.countries" Multiplicity="1" />
+    <End Role="organizers" Type="Self.organizers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="countries">
+        <PropertyRef Name="countries_id" />
+      </Principal>
+      <Dependent Role="organizers">
+        <PropertyRef Name="organizers_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище demkaModelContainer">
+    <EntitySet Name="activities" EntityType="Self.activities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cities" EntityType="Self.cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="countries" EntityType="Self.countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="directions" EntityType="Self.directions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="events" EntityType="Self.events" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jury" EntityType="Self.jury" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="jury_list" EntityType="Self.jury_list" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="member" EntityType="Self.member" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="moderators" EntityType="Self.moderators" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="organizers" EntityType="Self.organizers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_activities_jury_list" Association="Self.FK_activities_jury_list">
+      <End Role="jury_list" EntitySet="jury_list" />
+      <End Role="activities" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_activities_moderators" Association="Self.FK_activities_moderators">
+      <End Role="moderators" EntitySet="moderators" />
+      <End Role="activities" EntitySet="activities" />
+    </AssociationSet>
+    <AssociationSet Name="FK_events_cities" Association="Self.FK_events_cities">
+      <End Role="cities" EntitySet="cities" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_events_directions" Association="Self.FK_events_directions">
+      <End Role="directions" EntitySet="directions" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_events_member" Association="Self.FK_events_member">
+      <End Role="member" EntitySet="member" />
+      <End Role="events" EntitySet="events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_countries" Association="Self.FK_jury_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="jury" EntitySet="jury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_directions" Association="Self.FK_jury_directions">
+      <End Role="directions" EntitySet="directions" />
+      <End Role="jury" EntitySet="jury" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury" Association="Self.FK_jury_list_jury">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury1" Association="Self.FK_jury_list_jury1">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury2" Association="Self.FK_jury_list_jury2">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury3" Association="Self.FK_jury_list_jury3">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_jury_list_jury4" Association="Self.FK_jury_list_jury4">
+      <End Role="jury" EntitySet="jury" />
+      <End Role="jury_list" EntitySet="jury_list" />
+    </AssociationSet>
+    <AssociationSet Name="FK_member_countries" Association="Self.FK_member_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="member" EntitySet="member" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moderators_countries" Association="Self.FK_moderators_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="moderators" EntitySet="moderators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moderators_directions" Association="Self.FK_moderators_directions">
+      <End Role="directions" EntitySet="directions" />
+      <End Role="moderators" EntitySet="moderators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_moderators_events" Association="Self.FK_moderators_events">
+      <End Role="events" EntitySet="events" />
+      <End Role="moderators" EntitySet="moderators" />
+    </AssociationSet>
+    <AssociationSet Name="FK_organizers_countries" Association="Self.FK_organizers_countries">
+      <End Role="countries" EntitySet="countries" />
+      <End Role="organizers" EntitySet="organizers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

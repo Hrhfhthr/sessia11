@@ -18,3 +18,10 @@ Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.exe.manifest
 Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.application
 Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.exe.manifest
 Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.application
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\EntityFramework.dll
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\EntityFramework.SqlServer.dll
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\EntityFramework.xml
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\EntityFramework.SqlServer.xml
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\ru\EntityFramework.resources.dll
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1_Content.g.cs
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.CopyComplete

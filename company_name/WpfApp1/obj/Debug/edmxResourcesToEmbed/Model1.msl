@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище demkaModelContainer" CdmEntityContainer="infoEntities">
+    <EntitySetMapping Name="activities">
+      <EntityTypeMapping TypeName="demkaModel.activities">
+        <MappingFragment StoreEntitySet="activities">
+          <ScalarProperty Name="activities_id" ColumnName="activities_id" />
+          <ScalarProperty Name="activities_event" ColumnName="activities_event" />
+          <ScalarProperty Name="activities_name" ColumnName="activities_name" />
+          <ScalarProperty Name="activities_day" ColumnName="activities_day" />
+          <ScalarProperty Name="activities_start_time" ColumnName="activities_start_time" />
+          <ScalarProperty Name="activities_moderator" ColumnName="activities_moderator" />
+          <ScalarProperty Name="activities_jury" ColumnName="activities_jury" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cities">
+      <EntityTypeMapping TypeName="demkaModel.cities">
+        <MappingFragment StoreEntitySet="cities">
+          <ScalarProperty Name="cities_id" ColumnName="cities_id" />
+          <ScalarProperty Name="cities_img" ColumnName="cities_img" />
+          <ScalarProperty Name="cities_name" ColumnName="cities_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="countries">
+      <EntityTypeMapping TypeName="demkaModel.countries">
+        <MappingFragment StoreEntitySet="countries">
+          <ScalarProperty Name="countries_id" ColumnName="countries_id" />
+          <ScalarProperty Name="countries_name" ColumnName="countries_name" />
+          <ScalarProperty Name="countries_eng_name" ColumnName="countries_eng_name" />
+          <ScalarProperty Name="countries_code" ColumnName="countries_code" />
+          <ScalarProperty Name="countries_code_two" ColumnName="countries_code_two" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="directions">
+      <EntityTypeMapping TypeName="demkaModel.directions">
+        <MappingFragment StoreEntitySet="directions">
+          <ScalarProperty Name="directions_id" ColumnName="directions_id" />
+          <ScalarProperty Name="directions_name" ColumnName="directions_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="events">
+      <EntityTypeMapping TypeName="demkaModel.events">
+        <MappingFragment StoreEntitySet="events">
+          <ScalarProperty Name="events_img" ColumnName="events_img" />
+          <ScalarProperty Name="events_direction" ColumnName="events_direction" />
+          <ScalarProperty Name="events_id" ColumnName="events_id" />
+          <ScalarProperty Name="events_name" ColumnName="events_name" />
+          <ScalarProperty Name="events_date" ColumnName="events_date" />
+          <ScalarProperty Name="events_days" ColumnName="events_days" />
+          <ScalarProperty Name="events_city" ColumnName="events_city" />
+          <ScalarProperty Name="events_winner" ColumnName="events_winner" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jury">
+      <EntityTypeMapping TypeName="demkaModel.jury">
+        <MappingFragment StoreEntitySet="jury">
+          <ScalarProperty Name="jury_id" ColumnName="jury_id" />
+          <ScalarProperty Name="jury_name" ColumnName="jury_name" />
+          <ScalarProperty Name="jury_gender" ColumnName="jury_gender" />
+          <ScalarProperty Name="jury_mail" ColumnName="jury_mail" />
+          <ScalarProperty Name="jury_bd" ColumnName="jury_bd" />
+          <ScalarProperty Name="jury_country" ColumnName="jury_country" />
+          <ScalarProperty Name="jury_phone" ColumnName="jury_phone" />
+          <ScalarProperty Name="jury_direction" ColumnName="jury_direction" />
+          <ScalarProperty Name="jury_password" ColumnName="jury_password" />
+          <ScalarProperty Name="jury_photo" ColumnName="jury_photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="jury_list">
+      <EntityTypeMapping TypeName="demkaModel.jury_list">
+        <MappingFragment StoreEntitySet="jury_list">
+          <ScalarProperty Name="jury_list_id" ColumnName="jury_list_id" />
+          <ScalarProperty Name="jury1" ColumnName="jury1" />
+          <ScalarProperty Name="jury2" ColumnName="jury2" />
+          <ScalarProperty Name="jury3" ColumnName="jury3" />
+          <ScalarProperty Name="jury4" ColumnName="jury4" />
+          <ScalarProperty Name="jury5" ColumnName="jury5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="member">
+      <EntityTypeMapping TypeName="demkaModel.member">
+        <MappingFragment StoreEntitySet="member">
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="member_name" ColumnName="member_name" />
+          <ScalarProperty Name="member_email" ColumnName="member_email" />
+          <ScalarProperty Name="member_bd" ColumnName="member_bd" />
+          <ScalarProperty Name="member_country" ColumnName="member_country" />
+          <ScalarProperty Name="member_phone" ColumnName="member_phone" />
+          <ScalarProperty Name="member_password" ColumnName="member_password" />
+          <ScalarProperty Name="member_photo" ColumnName="member_photo" />
+          <ScalarProperty Name="member_gender" ColumnName="member_gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="moderators">
+      <EntityTypeMapping TypeName="demkaModel.moderators">
+        <MappingFragment StoreEntitySet="moderators">
+          <ScalarProperty Name="moderators_id" ColumnName="moderators_id" />
+          <ScalarProperty Name="moderators_name" ColumnName="moderators_name" />
+          <ScalarProperty Name="moderators_gender" ColumnName="moderators_gender" />
+          <ScalarProperty Name="moderators_mail" ColumnName="moderators_mail" />
+          <ScalarProperty Name="moderators_bd" ColumnName="moderators_bd" />
+          <ScalarProperty Name="moderators_country" ColumnName="moderators_country" />
+          <ScalarProperty Name="moderators_phone" ColumnName="moderators_phone" />
+          <ScalarProperty Name="moderators_direction" ColumnName="moderators_direction" />
+          <ScalarProperty Name="moderators_event" ColumnName="moderators_event" />
+          <ScalarProperty Name="moderators_password" ColumnName="moderators_password" />
+          <ScalarProperty Name="moderators_photo" ColumnName="moderators_photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="organizers">
+      <EntityTypeMapping TypeName="demkaModel.organizers">
+        <MappingFragment StoreEntitySet="organizers">
+          <ScalarProperty Name="organizers_id" ColumnName="organizers_id" />
+          <ScalarProperty Name="organizers_name" ColumnName="organizers_name" />
+          <ScalarProperty Name="organizers_mail" ColumnName="organizers_mail" />
+          <ScalarProperty Name="organizers_bd" ColumnName="organizers_bd" />
+          <ScalarProperty Name="organizers_country" ColumnName="organizers_country" />
+          <ScalarProperty Name="organizers_phone" ColumnName="organizers_phone" />
+          <ScalarProperty Name="organizers_password" ColumnName="organizers_password" />
+          <ScalarProperty Name="organizers_photo" ColumnName="organizers_photo" />
+          <ScalarProperty Name="organizers_gender" ColumnName="organizers_gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="demkaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
