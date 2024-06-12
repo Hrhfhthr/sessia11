@@ -1,0 +1,16 @@
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.exe.config
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.exe
+Q:\source\repos\sessia11\company_name\WpfApp1\bin\Debug\WpfApp1.pdb
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.AssemblyReference.cache
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.SuggestedBindingRedirects.cache
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\MainWindow.g.cs
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\App.g.cs
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.cache
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1_MarkupCompile.lref
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\MainWindow.baml
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.g.resources
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.Properties.Resources.resources
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.GenerateResource.cache
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.csproj.CoreCompileInputs.cache
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.exe
+Q:\source\repos\sessia11\company_name\WpfApp1\obj\Debug\WpfApp1.pdb
